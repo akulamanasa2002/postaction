@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHi1q0FXhtvvAq95oeruhjDJd9ZYIR0ntVcw&usqp=CAU");
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align: center;
+
+		}
+		#user{
+			padding:0.3%;
+			font-size:1rem;
+			font-family:italic;
+			margin:5% 0% 2% 0%;
+		}
+		#password{
+			padding:0.3%;
+			font-size:1rem;
+			font-family:italic;
+			margin-bottom: 2%;
+		}
+		#click{
+			background-color: black;
+			color: white;
+		}
+	
+	
+	</style>
+		
+	<script type="text/javascript">
+		function store(){
+		var user=document.getElementById("user").value;
+		console.log(user)
+		var password=document.getElementById("password").value;
+		console.log(password)
+
+		fetch("http://localhost:5000/newData",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({name:user,age:19})
+		})
+	}
+	</script>
+</head>
+<body>
+	<input id="user" type="text" placeholder="user" ></br>
+	<input id="password" type="text" placeholder="password"></br>
+	<button id="click" onclick="store()">Submit</button></br>
+
+</body>
+</html>
