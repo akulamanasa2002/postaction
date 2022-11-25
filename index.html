@@ -26,30 +26,68 @@
 			background-color: black;
 			color: white;
 		}
-	
-	
-	</style>
-		
+		.log{
+			color: hotpink;
+			margin-top: 3%;
+		}
+		#cars{
+			margin-bottom: 1%;
+		}
+		#choose{
+			color: white;
+			font-size: 1rem;
+			font-family: italic;
+		}
+		#email{
+			padding: 0.5%;
+			margin: 1%;
+			width: 1.5%;
+		}
+	</style>		
 	<script type="text/javascript">
 		function store(){
 		var user=document.getElementById("user").value;
 		console.log(user)
+		var cars=document.getElementById("cars").value;
+		console.log(cars)
 		var password=document.getElementById("password").value;
 		console.log(password)
-
+		var mail=document.getElementById("email").value;
+		console.log(email)
+		var confirmpassword=document.getElementById("confirmpassword").value;
+		console.log(confirmpassword)
+		var num=document.getElementById("number").value;
+		console.log(number)
+		var gen=document.getElementById("gender").value;
+		console.log(gender)
 		fetch("http://localhost:5000/newData",{
 			method:"POST",
 			headers:{
 				"Content-Type":"application/json"
 			},
-			body:JSON.stringify({name:user,age:19})
+			body:JSON.stringify({name:user,password:password,car:cars,email:mail, confirmpassword:confirmpassword,number:num,})
 		})
 	}
 	</script>
 </head>
 <body>
+	<h1 class="log">Login Page</h1>
 	<input id="user" type="text" placeholder="user" ></br>
+	<p><input id="email" placeholder="emailaddress"/></p>
 	<input id="password" type="text" placeholder="password"></br>
+	<p><input id="confirmpassword" placeholder="confirmpassword"/></p>
+	<p><input id="number" placeholder="mobilenumber"/></p>
+	 <p>
+	    	<input  id="gender" type="radio" vlue="female" name="gender"/>female
+	        <input  id="gender" type="radio" value="male" name="gender"/>male
+	    </p>
+        <label id="choose">Choose a car:</label></br>   
+	     <select id="cars">
+			  <option value="volvo">Volvo</option>
+			  <option value="saab">Saab</option>
+			  <option value="mercedes">Mercedes</option>
+			  <option value="audi">Audi</option>
+         </select></br>	     
 	<button id="click" onclick="store()">Submit</button></br>
 
 </body>

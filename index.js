@@ -12,10 +12,11 @@ app.use(bodyParser.json())
 app.use(cors())
 app.get("/",(req,res)=>{
 	res.send("hi i am server")
+
 })
 app.post("/newData",(req,res)=>{
 	//console.log(req.body)
-	const {name,age}=req.body
-	console.log(name,age,"values")
+	const {name, password,car,email,confirmpassword,number,gender}=req.body
+	console.log(name,password,car,email,confirmpassword,number,gender)
 })
 app.listen(port,()=>console.log("server is started"))
